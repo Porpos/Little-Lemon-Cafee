@@ -1,91 +1,120 @@
-
-.form_wrapper{
+.form_wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr auto;
     padding-inline: 1rem;
     gap: 1rem;
     color: var(--primary-color);
-    
+
 }
 
-.form_wrapper label{
+
+
+.form_wrapper label {
     display: flex;
     flex-direction: column;
     white-space: nowrap;
-    font-size: clamp(1rem,1.5vw,2rem);
+    font-weight: 600;
     padding: 1rem;
     gap: 1rem;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 
-.form_wrapper>label:last-child{
-    background-color: red;
-}
 
-.form_wrapper label>input,select{
-    font-size: clamp(0.8rem,2vw,1.2rem);
-    border: none;
+.form_wrapper label>input,
+select {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    border: 2px solid var(--primary-color);
+    padding: 2px;
+    border-radius: 5px;
+    font-size: clamp(0.8rem, 5vw, 1rem);
     outline: none;
-}
-.form_wrapper label>input,select{
-   border: 2px solid var(--primary-color);
-   padding: 2px;
-   border-radius: 5px;
-
+    background-color: var(--light-color);
+    color: var(--dark-color);
 }
 
-.form_wrapper .submit_button{
+
+.form_wrapper .submit_button {
     display: flex;
     justify-content: center;
     gap: 5px;
-    align-items: center;
+    align-items: baseline;
     grid-column-start: 1;
     grid-column-end: -1;
     font-size: 1.2rem;
     font-weight: bold;
-    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
-    padding-block: 10px;
-    border:none;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
+    padding-block: 12px;
+    border: none;
     background-color: var(--secondary-color);
     color: var(--primary-color);
     border-radius: 7px;
     cursor: pointer;
     height: 45px;
+    transition: all 0.2s ease;
 }
-.form_wrapper .submit_button:hover{
+
+.form_wrapper .submit_button:hover {
     background-color: rgb(255, 244, 125);
 }
-#dots{
+
+#dots {
+    height: max-content;
     justify-content: center;
     display: flex;
     gap: 5px;
 }
 
-#dots > span {
+#dots>span {
     width: 5px;
-    aspect-ratio:1;
+    aspect-ratio: 1;
     border-radius: 50%;
     background-color: var(--primary-color);
     animation: dotAnim 0.5s alternate infinite;
 }
-#dots > span:nth-child(2){
+
+#dots>span:nth-child(2) {
     animation-delay: 0.2s;
 
 }
 
-#dots > span:nth-child(3){
+#dots>span:nth-child(3) {
     animation-delay: 0.4s;
 
 }
 
 
+
+
 @keyframes dotAnim {
-    from{
-        transform: scale(0.4);
+    from {
+        transform: scale(0.2);
     }
-    to{
-        transform: scale(1.4);
+
+    to {
+        transform: scale(1);
     }
+}
+
+
+@media screen and (max-width : 480px) {
+    .form_wrapper {
+
+        padding-inline: 0;
+
+
+    }
+    .form_wrapper .submit_button{
+        margin-inline: 1rem;
+    }
+
+
+    input[type='date']:before {
+        color: #7c7c7c;
+        content: attr(placeholder);
+    }
+
 }

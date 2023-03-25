@@ -11,6 +11,7 @@ const BookingForm = (props) => {
           value={props.dateInput}
           type="date"
           id="res-date"
+          placeholder={props.dateInput !== "" ? "" : "Date"}
         />
       </label>
       <label htmlFor="res-time">
@@ -20,14 +21,11 @@ const BookingForm = (props) => {
             props.changeHandler(e, "time");
           }}
           value={props.timeInput}
-          id="res-time "
+          id="res-time"
         >
-          <option>17:00</option>
-          <option>18:00</option>
-          <option>19:00</option>
-          <option>20:00</option>
-          <option>21:00</option>
-          <option>22:00</option>
+          {props.availableDates.map((item) => (
+            <option>{item}</option>
+          ))}
         </select>
       </label>
       <label htmlFor="guests">
@@ -59,7 +57,7 @@ const BookingForm = (props) => {
       </label>
       <button className={styles.submit_button} type="submit">
         {!props.loading ? (
-          <span>Make Your reservation</span>
+          <span className={styles.button_text}>Make Your reservation</span>
         ) : (
           <>
             <span>Reserving</span>
