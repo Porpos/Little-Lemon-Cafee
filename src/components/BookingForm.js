@@ -11,6 +11,7 @@ const BookingForm = (props) => {
           value={props.dateInput}
           type="date"
           id="res-date"
+          required
           placeholder={props.dateInput !== "" ? "" : "Date"}
         />
       </label>
@@ -22,8 +23,12 @@ const BookingForm = (props) => {
           }}
           value={props.timeInput}
           id="res-time"
+          required
         >
-          {props.availableDates.map((item) => (
+          <option value="" disabled selected>
+            Select your option
+          </option>
+          {props.availableDates?.map((item, index) => (
             <option>{item}</option>
           ))}
         </select>
@@ -36,10 +41,12 @@ const BookingForm = (props) => {
           }}
           value={props.guestNumberInput}
           type="number"
+          required
           placeholder="1"
           min="1"
           max="10"
           id="guests"
+          data-testid='form-input'
         />
       </label>
       <label htmlFor="occasion">
@@ -50,12 +57,16 @@ const BookingForm = (props) => {
           }}
           value={props.occasionInput}
           id="occasion"
+          required
         >
+          <option value="" disabled selected>
+            Select your option
+          </option>
           <option>Birthday</option>
           <option>Anniversary</option>
         </select>
       </label>
-      <button className={styles.submit_button} type="submit">
+      <button  className={styles.submit_button} type="submit">
         {!props.loading ? (
           <span className={styles.button_text}>Make Your reservation</span>
         ) : (

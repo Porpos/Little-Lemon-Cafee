@@ -1,7 +1,7 @@
 import styles from "./layout.module.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-
+import { BsFillXDiamondFill } from "react-icons/bs";
 const Layout = (props) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
@@ -14,18 +14,20 @@ const Layout = (props) => {
         <ul className={  menuIsOpen ? styles.menuWrapper: styles.menuWrapper +' ' + styles.close}>
           <li>
             <Link onClick={() => setMenuIsOpen(false)}  className={styles.link} to="/">
-              Home
+            <BsFillXDiamondFill  className={styles.menuIcon}/>
+              <span> Home</span>
             </Link>
           </li>
           <li>
             <Link onClick={() => setMenuIsOpen(false)} className={styles.link} to="/menu">
-              Menu
+            <BsFillXDiamondFill  className={styles.menuIcon}/>
+            <span> Menu</span>
             </Link>
           </li>
           <li>
             <Link onClick={() => setMenuIsOpen(false)} className={styles.link} to="/reservation">
-              {" "}
-              Reservation
+              <BsFillXDiamondFill  className={styles.menuIcon}/>
+              <span> Booking</span>
             </Link>
           </li>
         </ul>

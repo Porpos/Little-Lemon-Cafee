@@ -2,7 +2,7 @@
     margin-inline: auto;
     width: clamp(300px, 100%, 1920px);
     display: grid;
-
+    
 }
 
 .navbar {
@@ -28,6 +28,16 @@
 
 
 }
+.navbar ul li a{
+    display: flex;
+    align-items:center;
+    gap: 0.4rem;
+}
+.menuIcon {
+    width: 0.8rem;
+    aspect-ratio: 1;
+}
+
 
 .navbar .hamburger_icon {
     display: none;
@@ -39,13 +49,14 @@
     cursor: pointer;
     color: var(--secondary-color);
     transition: all 0.3s ease;
-    pointer-events: auto;
     text-decoration: none;
+    pointer-events: auto;
 }
 
 
 .navbar ul:hover .link:not(:hover) {
     color: rgba(255, 226, 38, 0.589);
+
 
 }
 
@@ -73,12 +84,19 @@
     color: var(--secondary-color);
     font-size: larger;
 }
-.navbar .hamburger_close{
+
+.navbar .hamburger_close {
     display: none;
 }
 
+
 @media screen and (max-width: 480px) {
 
+
+    .menuIcon {
+        width: 1.7rem;
+        aspect-ratio: 1;
+    }
 
     .navbar .hamburger_icon {
         display: flex;
@@ -135,14 +153,14 @@
     .navbar .menuWrapper {
         background-color: white;
         height: 100svh;
-        width: 90%;
+        width: 1;
         left: 0;
         right: 0;
         display: grid;
         place-content: center;
         margin-top: 140%;
         flex-direction: column;
-        gap: 4rem;
+        gap: 2.5rem;
         position: absolute;
         transition: all 0.3s ease;
 
@@ -150,7 +168,7 @@
 
 
 
-   .close {
+    .close {
         opacity: 0;
         z-index: -99999;
     }

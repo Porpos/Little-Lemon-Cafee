@@ -15,21 +15,29 @@ const Booking = () => {
   const [reservationDetails, setReservationDetails] = useState();
   const [loading, setLoading] = useState(false);
   const [availableDates, setAvailableDates] = useState();
+  const [formChecked, setFormChecked] = useState();
+
   useEffect(() => {
     setAvailableDates(fetchAPI(new Date(dateInput)));
   }, [dateInput]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    await sleep(1500);
-    setReservationDetails({
-      date: dateInput,
-      time: timeInput,
-      guestNumber: guestNumberInput,
-      occasion: occasionInput,
-    });
-    setLoading(false);
+
+    if (timeInput && guestNumberInput && occasionInput && dateInput) {
+      setLoading(true);
+      await sleep(1500);
+      setReservationDetails({
+        date: dateInput,
+        time: timeInput,
+        guestNumber: guestNumberInput,
+        occasion: occasionInput,
+      });
+      setLoading(false);
+    } else {
+      setFormChecked(false)
+      return;
+    }
   };
 
   const changeHandler = (e, arg) => {
