@@ -18,12 +18,7 @@ const Layout = (props) => {
               <span> Home</span>
             </Link>
           </li>
-          <li>
-            <Link onClick={() => setMenuIsOpen(false)} className={styles.link} to="/menu">
-            <BsFillXDiamondFill  className={styles.menuIcon}/>
-            <span> Menu</span>
-            </Link>
-          </li>
+          
           <li>
             <Link onClick={() => setMenuIsOpen(false)} className={styles.link} to="/reservation">
               <BsFillXDiamondFill  className={styles.menuIcon}/>

@@ -69,7 +69,9 @@ const Booking = () => {
         <Modal clear={clearReservationDetails} details={reservationDetails} />
       )}
       <div className={styles.homeContainer}>
-        <div></div>
+        <div>
+          <img className={styles.image} src="https://st2.depositphotos.com/5532432/10076/v/600/depositphotos_100766842-stock-illustration-dining-table-vector-icon.jpg" alt="table" />
+        </div>
         <div className={styles.main_text}>
           <h1>Book a table!</h1>
           <BookingForm
@@ -83,7 +85,9 @@ const Booking = () => {
             occasionInput={occasionInput}
           />
         </div>
-        <div></div>
+        <div>
+          <div className={styles.tick}></div>
+        </div>
       </div>
     </>
   );
